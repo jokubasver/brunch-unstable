@@ -9,6 +9,7 @@ mkdir ./kernels
 rm -rf ./kernel
 mkdir ./kernel
 
+
 cwd="$(pwd)"
 chromeos_version="R122"
 
