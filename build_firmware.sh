@@ -10,8 +10,12 @@ download_sof()
     #url="$(curl -s https://api.github.com/repos/thesofproject/sof-bin/releases/latest \
 #        | grep tarball_url \
 #        | sed 's/  "tarball_url": "//g' | sed "s/\",//g")"
-    url="https://arch.mirror.kescher.at/extra/os/x86_64/sof-firmware-2023.12-1-x86_64.pkg.tar.zst"
-    wget -O "$1" "$url"
+    local page="https://arch.mirror.kescher.at/extra/os/x86_64/"
+    local file=""
+
+    file="$(curl -s $page | grep sof-firmware |  cut -d '"' -f4 | gre -v sig)"
+
+    wget -O "$1" "${page}""${file}"
 }
 
 download_alsa_conf()
