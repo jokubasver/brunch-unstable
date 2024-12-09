@@ -11,7 +11,7 @@ mkdir ./kernel
 
 
 cwd="$(pwd)"
-chromeos_version="R122"
+chromeos_version="R126"
 
 apply_patches()
 {
