@@ -1,0 +1,32 @@
+From 0ead20669df5d6cbf65333ca4d4354a87fdd243c Mon Sep 17 00:00:00 2001
+From: Su Yue <glass.su@suse.com>
+Date: Mon, 9 Dec 2024 18:04:41 +0800
+Subject: [PATCH 2/2] fix lsm report issue
+
+commit f530c34b8e5bef680a504ab7003b9f4956a6a766
+Author: yang <yang@fydeos.io>
+Date:   Tue Oct 8 12:00:16 2024 +0800
+
+    OS-403 fix lsm report issue
+
+Signed-off-by: Su Yue <glass.su@suse.com>
+---
+ security/chromiumos/lsm.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/security/chromiumos/lsm.c b/security/chromiumos/lsm.c
+index 4c4b00adeda0..7f28563232bb 100644
+--- a/security/chromiumos/lsm.c
++++ b/security/chromiumos/lsm.c
+@@ -84,6 +84,8 @@ static void report(const char *origin, const struct path *path, char *operation)
+ 	kfree(cmdline);
+ 	kfree(alloced);
+ }
++#else
++static void report(const char *origin, const struct path *path, char *operation) {}
+ #endif
+ 
+ static int chromiumos_security_sb_mount(const char *dev_name,
+-- 
+2.47.1
+

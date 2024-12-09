@@ -1,0 +1,32 @@
+From b92df46d7c6674e183bb18a93e2576a8772e1b47 Mon Sep 17 00:00:00 2001
+From: Su Yue <glass.su@suse.com>
+Date: Mon, 9 Dec 2024 18:01:56 +0800
+Subject: [PATCH 1/2] set enable to mount overlayfs
+
+commit a77bc313c27551da78719d06ee470a16c5e1879d
+Author: yang <yang@fydeos.io>
+Date:   Tue Sep 3 18:26:04 2024 +0800
+
+    set enable to mount overlayfs
+
+Signed-off-by: Su Yue <glass.su@suse.com>
+---
+ security/chromiumos/lsm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/security/chromiumos/lsm.c b/security/chromiumos/lsm.c
+index 2a0777c6dd47..4c4b00adeda0 100644
+--- a/security/chromiumos/lsm.c
++++ b/security/chromiumos/lsm.c
+@@ -41,7 +41,7 @@
+ #include "inode_mark.h"
+ #include "utils.h"
+ 
+-static int allow_overlayfs;
++static int allow_overlayfs = 1;
+ 
+ static int __init allow_overlayfs_set(char *__unused)
+ {
+-- 
+2.47.1
+
