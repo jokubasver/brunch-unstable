@@ -10,7 +10,7 @@ download_sof()
     #url="$(curl -s https://api.github.com/repos/thesofproject/sof-bin/releases/latest \
 #        | grep tarball_url \
 #        | sed 's/  "tarball_url": "//g' | sed "s/\",//g")"
-    local page="https://arch.mirror.kescher.at/extra/os/x86_64/"
+    local page="https://archive.org/download/archlinux_pkg_sof-firmware/sof-firmware-2024.09-1-x86_64.pkg.tar.zst"
     local file=""
 
     file="$(curl -s $page | grep sof-firmware |  cut -d '"' -f4 | gre -v sig)"
