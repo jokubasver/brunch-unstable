@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -x
-if [ ! -d /home/runner/work ]; then NTHREADS=$(nproc); else NTHREADS=$(($(nproc)*4)); fi
+NTHREADS=$(nproc)
 
 rm -rf ./kernels
 mkdir ./kernels
